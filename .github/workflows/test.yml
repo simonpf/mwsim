@@ -36,10 +36,3 @@ jobs:
         run: |
           conda activate mwsim
           pytest --cov=mwsim tests
-
-      - name: Upload Coverage Report
-        uses: codecov/codecov-action@v3
-        with:
-          fail_ci_if_error: true
-          files: coverage.xml
-          verbose: true
