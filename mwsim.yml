@@ -1,0 +1,12 @@
+name: mwsim
+channels:
+  - conda-forge
+  - rttools
+dependencies:
+  - pyarts
+  - matplotlib
+  - xarray
+  - numpy
+  - jupyterlab
+  - pykdtree
+  - cfgrib
