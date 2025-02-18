@@ -1,12 +1,19 @@
-from mwsim.data_loaders import Fascod
+"""
+Tests for the ARTS26 simulator.
+"""
+import pytest
 
+from mwsim.data_loaders import Fascod
 from mwsim.sensors import GMI
 from mwsim.simulators import ARTS26Simulator
 
 
+NEEDS_MWSIM_DATA_PATH = pytest.mark.skipif("MWSIM_DATA_PATH" not in os.environ, reason="Required data not available.")
+
+
+@NEEDS_MWSIM_DATA_PATH
 def test_simulator():
 
-    #fascod = Fascod(rwc=1e-4, swc=1e-4)
     fascod = Fascod(rwc=0e-4, swc=0e-4)
     profile = next(iter(fascod))
 
@@ -14,8 +21,6 @@ def test_simulator():
     sim = ARTS26Simulator(sensor)
     sim.setup(sensor)
 
-    #sim.setup(sensor)
-    #tbs = sim.simulate_profile(profile)
     sim.simulate(profile)
     results = sim.get_results()
     tbs = results.brightness_temperatures.data
