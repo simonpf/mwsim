@@ -21,7 +21,7 @@ jobs:
         with:
           activate-environment: mwsim
           environment-file: mwsim.yml
-          python-version: 3.10
+          python-version: 3.9
           auto-activate-base: false
 
       - name: Install dependencies
