@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mwsim"
+version = "0.1.0"
+description = "Passive-microwave satellite sensor simulation framework for high-resolution model output."
+authors = [{ name = "Simon Pfreundschuh", email = "simon.pfreundschuh@colostate.edu" }]
+license = { file = "MIT" }
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "pytest",
+]
+
+[tool.setuptools]
+packages = ["mwsim"]
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+"mwsim" = ["simulators/files/*"]
