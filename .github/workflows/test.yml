@@ -1,0 +1,45 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Miniconda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          activate-environment: test-env
+          environment-file: mwsim.yml
+          python-version: 3.10
+          auto-activate-base: false
+
+      - name: Install dependencies
+        shell: bash -l {0}
+        run: |
+          conda activate mwsim
+          conda install pytest pytest-cov
+          pip install -e .
+
+      - name: Run Tests
+        shell: bash -l {0}
+        run: |
+          conda activate mwsim
+          pytest --cov=mwsim tests
+
+      - name: Upload Coverage Report
+        uses: codecov/codecov-action@v3
+        with:
+          fail_ci_if_error: true
+          files: coverage.xml
+          verbose: true
