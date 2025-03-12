@@ -1,6 +1,8 @@
 """
 Tests for the ARTS26 simulator.
 """
+import os
+
 import pytest
 
 from mwsim.data_loaders import Fascod

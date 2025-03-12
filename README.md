@@ -26,3 +26,8 @@ In order to properly simulate brightness temperatures affected by clouds and pre
 ### Example simulation
 
 An example notebook demonstrating the simulation workflow is provided in ``notebooks/gmi_simulations.ipynb``.
+
+
+#### Input data
+
+The scripts used to produce the input data for the example are in the ``scripts`` folder.
