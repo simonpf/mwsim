@@ -9,7 +9,7 @@ This repository contains the implementation of the ``mwsim`` Python package, a f
 The ``mwsim.yaml`` file defines a conda environment containing all required software to use ``mwsim``. Install it using
 
 ``` shellsession
-cond env create --file mwsim.yml
+conda env create --file mwsim.yml
 ```
 
 Then install the ``mwsim`` package:
